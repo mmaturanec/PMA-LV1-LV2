@@ -66,8 +66,5 @@ public class PersonalInfoActivity extends AppCompatActivity {
         });
 
     }
-    @Override
-    public void onBackPressed(){
-        Toast.makeText(getApplicationContext(), "Ne moze!", Toast.LENGTH_SHORT).show();
-    }
+
 }

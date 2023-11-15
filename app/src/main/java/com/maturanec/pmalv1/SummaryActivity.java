@@ -47,7 +47,9 @@ public class SummaryActivity extends AppCompatActivity {
         btnPocetna.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intPocetna = new Intent(getApplicationContext(), PersonalInfoActivity.class);
+                Intent intPocetna = new Intent(getApplicationContext(), PocetniActivity.class);
+
+                StudentSingleton.getInstance().addStudent(new Student(sIme, sPrezime, sDatum, sPredmet, sProfesor, sSatiPR, sSatiLV, sVrsta));
                 startActivity(intPocetna);
             }
         });
