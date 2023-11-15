@@ -52,6 +52,7 @@ public class PocetniActivity extends AppCompatActivity {
         list.add("Select Language");
         list.add("English");
         list.add("Croatian");
+        list.add("German");
 
         btnJedan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +76,9 @@ public class PocetniActivity extends AppCompatActivity {
                         break;
                     case 2:
                         setLocale("hr");
+                        break;
+                    case 3:
+                        setLocale("de");
                         break;
                 }
             }

@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
-        android:text="Dalje"
+        android:text="@string/Dalje"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -37,7 +37,11 @@
                 android:id="@+id/textIme"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Ime" />
+                android:hint="@string/Ime"
+              />
+
+
+
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -50,7 +54,8 @@
                 android:id="@+id/textPrezime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Prezime" />
+                android:hint="@string/Prezime"
+               />
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
@@ -65,7 +70,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+
+        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textDatum"
@@ -75,7 +82,9 @@
             android:layout_marginEnd="16dp"
             android:clickable="false"
             android:focusable="false"
-            android:hint="Datum rođenja" />
+            android:hint="@string/Datum_rodenja"
+            />
+
 
     </com.google.android.material.textfield.TextInputLayout>
 

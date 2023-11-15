@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Ime">Name</string>
+    <string name="Prezime">Nachname</string>
+    <string name="Datum_rodenja">Geburtsdatum</string>
+    <string name="Dalje">Weiter</string>
+    <string name="Dodaj_studenta">Fügen Sie einen Schüler hinzu</string>
+    <string name="Predmet">Fall</string>
+    <string name="Profesor">Professor</string>
+    <string name="Sati_PR">Stunden PR</string>
+    <string name="Sati_LV">Stunden LV</string>
+    <string name="Vrsta_Predmeta">Wahlfach</string>
+    <string name="Student">Student</string>
+    <string name="Pocetna">Anfänglich</string>
+
+</resources>
