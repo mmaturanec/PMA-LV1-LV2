@@ -20,7 +20,7 @@ public class StudentInfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_student_info);
 
             Button btnSIA = findViewById(R.id.btnSIA);
-        TextInputEditText textPredmet = findViewById(R.id.textPredmet);
+        TextInputEditText textPredmet = findViewById(R.id.textPredmet1);
         TextInputEditText textProfesor = findViewById(R.id.textProfesor);
         TextInputEditText textSatiLV = findViewById(R.id.textSatiLV);
         TextInputEditText textSatiPR = findViewById(R.id.textSatiPR);

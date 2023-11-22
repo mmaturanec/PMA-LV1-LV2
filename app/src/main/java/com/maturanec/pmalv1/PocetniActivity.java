@@ -57,7 +57,7 @@ public class PocetniActivity extends AppCompatActivity {
         btnJedan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent otvoriStudentInfo = new Intent(getApplicationContext(), PersonalInfoActivity.class);
+                Intent otvoriStudentInfo = new Intent(getApplicationContext(), CreateNewRecordActivity.class);
                 startActivity(otvoriStudentInfo);
             }
         });
