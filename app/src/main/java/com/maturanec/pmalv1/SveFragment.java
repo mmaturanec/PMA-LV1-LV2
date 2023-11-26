@@ -1,6 +1,7 @@
 package com.maturanec.pmalv1;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -27,6 +29,7 @@ public class SveFragment extends Fragment {
     private TextView tvSatiPR;
     private TextView tvSatiLV;
     private TextView tvIzborni;
+    private TextView tvRowImg;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -49,8 +52,10 @@ public class SveFragment extends Fragment {
         tvSatiLV = view.findViewById(R.id.viewSatiLV);
         tvSatiPR = view.findViewById(R.id.viewSatiPR);
         tvIzborni = view.findViewById(R.id.viewVrstaPredmeta);
+        tvRowImg = view.findViewById(R.id.pictureView);
 
-
+        tvRowImg.setText("");
+        sharedViewModel.dohvatiPicture().observe(getViewLifecycleOwner(), novoIme -> tvRowImg.setText(novoIme));
 
         tvImeStudenta.setText("");
         sharedViewModel.dohvatiPodatak().observe(getViewLifecycleOwner(), novoIme -> tvImeStudenta.setText(novoIme));
@@ -77,7 +82,7 @@ public class SveFragment extends Fragment {
             public void onClick(View v) {
                 Intent intPocetna = new Intent(getActivity(), PocetniActivity.class);
 
-                StudentSingleton.getInstance().addStudent(new Student(tvImeStudenta.getText().toString(), tvPrezimeStudenta.getText().toString(), "", tvPredmet.getText().toString(), tvProfesor.getText().toString(), tvSatiPR.getText().toString(), tvSatiLV.getText().toString(), tvIzborni.getText().toString()));
+                StudentSingleton.getInstance().addStudent(new Student(tvImeStudenta.getText().toString(), tvPrezimeStudenta.getText().toString(), tvDatumRodenjaStudenta.getText().toString(), tvPredmet.getText().toString(), tvProfesor.getText().toString(), tvSatiPR.getText().toString(), tvSatiLV.getText().toString(), tvIzborni.getText().toString(), tvRowImg.getText().toString()));
                 startActivity(intPocetna);
             }
         });

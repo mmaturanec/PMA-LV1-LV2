@@ -4,13 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.ImageView;
 
 import com.google.android.material.tabs.TabLayout;
 
 public class CreateNewRecordActivity extends AppCompatActivity {
 
-
+    private String PictureUri = "";
     TabLayout tabLayout;
     ViewPager2 viewPager2;
     MyViewPagerAdapter myViewPagerAdapter;
@@ -20,6 +23,14 @@ public class CreateNewRecordActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_new_record);
 
         SharedViewModel sharedViewModel = new ViewModelProvider(this).get(SharedViewModel.class);
+        final Bundle oExtras = getIntent().getExtras();
+        if(oExtras != null)
+        {
+             PictureUri = oExtras.getString("savedUri");
+
+        }
+
+
 
         tabLayout = findViewById(R.id.tab_layout);
         viewPager2 = findViewById(R.id.view_pager);
@@ -50,5 +61,8 @@ public class CreateNewRecordActivity extends AppCompatActivity {
                 tabLayout.getTabAt(position).select();
             }
         });
+    }
+    public String getMyData() {
+        return PictureUri;
     }
 }

@@ -1,6 +1,9 @@
 package com.maturanec.pmalv1;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,6 +44,9 @@ public class Studenti_RecyclerViewAdapter extends RecyclerView.Adapter<Studenti_
         holder.tvSatiLv.setText(lStudenti.get(position).getSatiLV());
         holder.tvVrsta.setText(lStudenti.get(position).getVrsta());
 
+        Bitmap bitmap = BitmapFactory.decodeFile(lStudenti.get(position).getPicture());
+        holder.tvRowImg.setImageBitmap(bitmap);
+
     }
 
     @Override
@@ -52,6 +58,7 @@ public class Studenti_RecyclerViewAdapter extends RecyclerView.Adapter<Studenti_
         //grabbing the views from our recycler_view_row layout file
         //kinda like in the onCreate method
         TextView tvIme, tvPrezime, tvDatumRodenja, tvPredmet, tvProfesor, tvSatiPr, tvSatiLv, tvVrsta;
+        ImageView tvRowImg;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -63,7 +70,7 @@ public class Studenti_RecyclerViewAdapter extends RecyclerView.Adapter<Studenti_
             tvSatiPr = itemView.findViewById(R.id.textView18);
             tvSatiLv = itemView.findViewById(R.id.textView17);
             tvVrsta = itemView.findViewById(R.id.textView19);
-
+            tvRowImg = itemView.findViewById(R.id.rowImg);
         }
 
     }

@@ -49,7 +49,7 @@ public class SummaryActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intPocetna = new Intent(getApplicationContext(), PocetniActivity.class);
 
-                StudentSingleton.getInstance().addStudent(new Student(sIme, sPrezime, sDatum, sPredmet, sProfesor, sSatiPR, sSatiLV, sVrsta));
+                StudentSingleton.getInstance().addStudent(new Student(sIme, sPrezime, sDatum, sPredmet, sProfesor, sSatiPR, sSatiLV, sVrsta, ""));
                 startActivity(intPocetna);
             }
         });

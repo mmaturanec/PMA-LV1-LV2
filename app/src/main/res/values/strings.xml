@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">PMALV1</string>
     <string name="title_activity_pocetni">Title pocetni</string>
+    <string name="take_photo">Slikaj</string>
+    <string name="start_capture">Snimaj</string>
     <string name="Ime">Ime</string>
     <string name="Prezime">Prezime</string>
     <string name="Datum_rodenja">Datum rođenja</string>
@@ -13,6 +15,5 @@
     <string name="Vrsta_Predmeta">Izborni</string>
     <string name="Student">Student</string>
     <string name="Pocetna">Pocetna</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

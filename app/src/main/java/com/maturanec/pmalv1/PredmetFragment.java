@@ -10,8 +10,10 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.Toast;
 
 
 public class PredmetFragment extends Fragment {
@@ -33,6 +35,7 @@ public class PredmetFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_predmet, container, false);
+        sharedViewModel.postaviIzborni("redovni");
         /////////////////////////////
         editTextPredmet = view.findViewById(R.id.textPredmet1);
         editTextPredmet.addTextChangedListener(new TextWatcher() {
@@ -103,14 +106,31 @@ public class PredmetFragment extends Fragment {
             }
         });
         Switch textSwitch = (Switch) view.findViewById(R.id.switch4);
+        textSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // Your code here when the switch is clicked/changed
+                if (isChecked) {
+                    Toast.makeText(getActivity().getApplicationContext(), "Test checked", Toast.LENGTH_SHORT ).show();
+                    sharedViewModel.postaviIzborni("izborni");
+                } else {
+                    Toast.makeText(getActivity().getApplicationContext(), "Test UNchecked", Toast.LENGTH_SHORT ).show();
+                    sharedViewModel.postaviIzborni("redovni");
+                }
+            }
+        });
+        /*
         String switchtext = "";
         if(textSwitch.isChecked())
         {
+            Toast.makeText(getActivity().getApplicationContext(), "Test checked", Toast.LENGTH_SHORT ).show();
             sharedViewModel.postaviIzborni("izborni");
         }
         else{
             sharedViewModel.postaviIzborni("redovni");
         }
+        */
+
         return view;
     }
 }

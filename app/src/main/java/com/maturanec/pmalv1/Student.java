@@ -10,8 +10,9 @@ public class Student {
     String SatiPr;
     String SatiLV;
     String Vrsta;
+    String Picture;
 
-    public Student(String ime, String prezime, String datumRodenja, String predmet, String profesor, String satiPr, String satiLV, String vrsta) {
+    public Student(String ime, String prezime, String datumRodenja, String predmet, String profesor, String satiPr, String satiLV, String vrsta, String picture) {
         Ime = ime;
         Prezime = prezime;
         DatumRodenja = datumRodenja;
@@ -20,6 +21,7 @@ public class Student {
         SatiPr = satiPr;
         SatiLV = satiLV;
         Vrsta = vrsta;
+        Picture = picture;
     }
 
     public String getIme() {
@@ -52,5 +54,9 @@ public class Student {
 
     public String getVrsta() {
         return Vrsta;
+    }
+
+    public String getPicture() {
+        return Picture;
     }
 }

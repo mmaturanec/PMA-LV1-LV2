@@ -12,5 +12,8 @@
     <string name="Vrsta_Predmeta">Wahlfach</string>
     <string name="Student">Student</string>
     <string name="Pocetna">Anfänglich</string>
-
+    <string name="app_name">PMALV1</string>
+    <string name="title_activity_pocetni">Title pocetni</string>
+    <string name="take_photo">Mach ein Foto</string>
+    <string name="start_capture">Aufzeichnen</string>
 </resources>

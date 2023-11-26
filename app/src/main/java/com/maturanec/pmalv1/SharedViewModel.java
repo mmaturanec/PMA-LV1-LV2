@@ -15,10 +15,11 @@ public class SharedViewModel extends ViewModel {
     private MutableLiveData<String> satiLV = new MutableLiveData<>();
     private MutableLiveData<String> satiPR = new MutableLiveData<>();
     private MutableLiveData<String> izborni = new MutableLiveData<>();
+    private MutableLiveData<String> pictureUrl = new MutableLiveData<>();
 
 
     //fragment student
-
+    public void postaviPitcure(String noviPodatak) { pictureUrl.setValue(noviPodatak);}
     public void postaviPodatak(String noviPodatak) {
         podatak.setValue(noviPodatak);
     }
@@ -35,6 +36,9 @@ public class SharedViewModel extends ViewModel {
     public void postaviNazivSatiPR(String noviPodatak) {satiPR.setValue(noviPodatak);}
     public void postaviIzborni(String noviPodatak) {izborni.setValue(noviPodatak);}
 //fragment student
+    public LiveData<String> dohvatiPicture() {
+    return pictureUrl;
+}
     public LiveData<String> dohvatiPodatak() {
         return podatak;
     }

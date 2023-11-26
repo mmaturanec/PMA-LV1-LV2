@@ -6,10 +6,14 @@
     <string name="Dalje">Next</string>
     <string name="Dodaj_studenta">Add new student</string>
     <string name="Predmet">Subject</string>
-    <string name="Profesor">Proffesor</string>
+    <string name="Profesor">Professor</string>
     <string name="Sati_PR">PR hours</string>
     <string name="Sati_LV">LV hours</string>
     <string name="Vrsta_Predmeta">Elective Course</string>
     <string name="Student">Student</string>
     <string name="Pocetna">Home</string>
+    <string name="app_name">PMALV1</string>
+    <string name="title_activity_pocetni">Title</string>
+    <string name="take_photo">Take a photo</string>
+    <string name="start_capture">Capture</string>
 </resources>
