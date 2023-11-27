@@ -28,6 +28,7 @@ public class CreateNewRecordActivity extends AppCompatActivity {
         {
              PictureUri = oExtras.getString("savedUri");
 
+                sharedViewModel.postaviPitcure(PictureUri);
         }
 
 

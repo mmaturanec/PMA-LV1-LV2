@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class Studenti_RecyclerViewAdapter extends RecyclerView.Adapter<Studenti_RecyclerViewAdapter.MyViewHolder> {
@@ -44,9 +46,21 @@ public class Studenti_RecyclerViewAdapter extends RecyclerView.Adapter<Studenti_
         holder.tvSatiLv.setText(lStudenti.get(position).getSatiLV());
         holder.tvVrsta.setText(lStudenti.get(position).getVrsta());
 
+
         Bitmap bitmap = BitmapFactory.decodeFile(lStudenti.get(position).getPicture());
         holder.tvRowImg.setImageBitmap(bitmap);
 
+        /*
+        File imageFile = new File(lStudenti.get(position).getPicture());
+        if (imageFile.exists()) {
+            Bitmap myBitmap = BitmapFactory.decodeFile(imageFile.getAbsolutePath());
+            ImageView imageView=(ImageView)findViewById(R.id.imageView);
+            imageView.setImageBitmap(myBitmap);
+
+        }
+
+
+         */
     }
 
     @Override

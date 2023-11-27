@@ -1,6 +1,7 @@
 package com.maturanec.pmalv1;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -9,6 +10,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -56,18 +58,40 @@ public class StudentFragment extends Fragment {
 
             //ImageView imgView = view.findViewById(R.id.imgView);
             //imgView.setImageURI(Uri.parse(PictureUri));
+            /*
             File imgFile = new  File(PictureUri);
             Log.d("test", "FileeeN: " + imgFile);
 
-            if(imgFile.exists()){
                 Log.d("test", "USLO JE U FILE: " + PictureUri);
 
                 Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
                 ImageView imgView = (ImageView) view.findViewById(R.id.imgView);
                 imgView.setImageBitmap(myBitmap);
-            }
             sharedViewModel.postaviPitcure(PictureUri);
+             */
+            String[] projection = new String[]{
+                    MediaStore.Images.ImageColumns._ID,
+                    MediaStore.Images.ImageColumns.DATA,
+                    MediaStore.Images.ImageColumns.BUCKET_DISPLAY_NAME,
+                    MediaStore.Images.ImageColumns.DATE_TAKEN,
+                    MediaStore.Images.ImageColumns.MIME_TYPE
+            };
+            final Cursor cursor = getContext().getContentResolver()
+                    .query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, projection, null,
+                            null, MediaStore.Images.ImageColumns.DATE_TAKEN + " DESC");
 
+// Put it in the image view
+            if (cursor.moveToFirst()) {
+                final ImageView imageView = (ImageView) view.findViewById(R.id.imgView);
+                String imageLocation = cursor.getString(1);
+                File imageFile = new File(imageLocation);
+                if (imageFile.exists()) {
+                    Log.d("tvRowImg", "lOKACIJA SLIKE " + imageLocation);
+                    sharedViewModel.postaviPitcure(imageLocation);
+                    Bitmap bm = BitmapFactory.decodeFile(imageLocation);
+                    imageView.setImageBitmap(bm);
+                }
+            }
 
         }
 

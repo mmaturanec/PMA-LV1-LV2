@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,7 @@ public class SveFragment extends Fragment {
     private TextView tvSatiLV;
     private TextView tvIzborni;
     private TextView tvRowImg;
+    private TextView tvSpinner;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,10 +55,14 @@ public class SveFragment extends Fragment {
         tvSatiPR = view.findViewById(R.id.viewSatiPR);
         tvIzborni = view.findViewById(R.id.viewVrstaPredmeta);
         tvRowImg = view.findViewById(R.id.pictureView);
+        tvSpinner = view.findViewById(R.id.viewSpinnerPredmeti);
+
+        tvSpinner.setText("");
+        sharedViewModel.dohvatiSpinner().observe(getViewLifecycleOwner(), novoIme -> tvSpinner.setText(novoIme));
 
         tvRowImg.setText("");
         sharedViewModel.dohvatiPicture().observe(getViewLifecycleOwner(), novoIme -> tvRowImg.setText(novoIme));
-
+        Log.d("tvRowImg", "onCreateView: Shareani img path");
         tvImeStudenta.setText("");
         sharedViewModel.dohvatiPodatak().observe(getViewLifecycleOwner(), novoIme -> tvImeStudenta.setText(novoIme));
 
@@ -82,7 +88,7 @@ public class SveFragment extends Fragment {
             public void onClick(View v) {
                 Intent intPocetna = new Intent(getActivity(), PocetniActivity.class);
 
-                StudentSingleton.getInstance().addStudent(new Student(tvImeStudenta.getText().toString(), tvPrezimeStudenta.getText().toString(), tvDatumRodenjaStudenta.getText().toString(), tvPredmet.getText().toString(), tvProfesor.getText().toString(), tvSatiPR.getText().toString(), tvSatiLV.getText().toString(), tvIzborni.getText().toString(), tvRowImg.getText().toString()));
+                StudentSingleton.getInstance().addStudent(new Student(tvImeStudenta.getText().toString(), tvPrezimeStudenta.getText().toString(), tvDatumRodenjaStudenta.getText().toString(), tvSpinner.getText().toString(), tvProfesor.getText().toString(), tvSatiPR.getText().toString(), tvSatiLV.getText().toString(), tvIzborni.getText().toString(), tvRowImg.getText().toString()));
                 startActivity(intPocetna);
             }
         });
